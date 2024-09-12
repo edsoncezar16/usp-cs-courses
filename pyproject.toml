@@ -1,0 +1,38 @@
+[project]
+name = "usp-cs-courses"
+description = "Definitions of Dagster assets for CS USP course disciplines for using lineage as a structured learning path."
+dynamic = ["version"]
+requires-python = ">= 3.10"
+dependencies = [
+  "dagster",
+  "requests",
+  "beautifulsoup4",
+  "unidecode"
+]
+authors = [
+  {name = "Edson Nogueira", email = "edsoncezar16@gmail.com"}
+]
+maintainers = [
+  {name = "Edson Nogueira", email = "edsoncezar16@gmail.com"},
+]
+readme = "README.md"
+license = {file = "LICENSE"}
+
+[project.optional-dependencies]
+dev = ["dagster-webserver", "pytest", "pre-commit"]
+
+[project.scripts]
+generate-assets-config = "generate_assets_config:main"
+
+[tool.dagster]
+module_name = "usp_cs_courses"
+
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+
+[tool.setuptools]
+packages = ["generate_assets_config", "usp_cs_courses"]
+
